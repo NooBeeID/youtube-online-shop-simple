@@ -4,6 +4,7 @@ import (
 	"log"
 	"nbid-online-shop/apps/auth"
 	"nbid-online-shop/apps/product"
+	"nbid-online-shop/apps/transaction"
 	"nbid-online-shop/external/database"
 	"nbid-online-shop/internal/config"
 
@@ -32,6 +33,7 @@ func main() {
 
 	auth.Init(router, db)
 	product.Init(router, db)
+	transaction.Init(router, db)
 
 	router.Listen(config.Cfg.App.Port)
 }
