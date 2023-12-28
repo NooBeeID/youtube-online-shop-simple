@@ -6,6 +6,7 @@ import (
 	"nbid-online-shop/apps/product"
 	"nbid-online-shop/apps/transaction"
 	"nbid-online-shop/external/database"
+	infrafiber "nbid-online-shop/infra/fiber"
 	"nbid-online-shop/internal/config"
 
 	"github.com/gofiber/fiber/v2"
@@ -30,6 +31,8 @@ func main() {
 		Prefork: true,
 		AppName: config.Cfg.App.Name,
 	})
+
+	router.Use(infrafiber.Trace())
 
 	auth.Init(router, db)
 	product.Init(router, db)

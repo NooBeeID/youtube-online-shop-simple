@@ -7,8 +7,9 @@ import (
 
 // error general
 var (
-	ErrNotFound     = errors.New("not found")
-	ErrUnauthorized = errors.New("unauthorized")
+	ErrNotFound        = errors.New("not found")
+	ErrUnauthorized    = errors.New("unauthorized")
+	ErrForbiddenAccess = errors.New("forbidden access")
 )
 
 var (
@@ -51,10 +52,11 @@ func (e Error) Error() string {
 }
 
 var (
-	ErrorGeneral      = NewError("general error", "99999", http.StatusInternalServerError)
-	ErrorBadRequest   = NewError("bad request", "40000", http.StatusBadRequest)
-	ErrorNotFound     = NewError(ErrNotFound.Error(), "40400", http.StatusNotFound)
-	ErrorUnauthorized = NewError(ErrUnauthorized.Error(), "40100", http.StatusUnauthorized)
+	ErrorGeneral         = NewError("general error", "99999", http.StatusInternalServerError)
+	ErrorBadRequest      = NewError("bad request", "40000", http.StatusBadRequest)
+	ErrorNotFound        = NewError(ErrNotFound.Error(), "40400", http.StatusNotFound)
+	ErrorUnauthorized    = NewError(ErrUnauthorized.Error(), "40100", http.StatusUnauthorized)
+	ErrorForbiddenAccess = NewError(ErrForbiddenAccess.Error(), "40100", http.StatusForbidden)
 )
 
 var (
@@ -85,5 +87,6 @@ var (
 		ErrEmailAlreadyUsed.Error():      ErrorEmailAlreadyUsed,
 		ErrPasswordNotMatch.Error():      ErrorPasswordNotMatch,
 		ErrUnauthorized.Error():          ErrorUnauthorized,
+		ErrForbiddenAccess.Error():       ErrorForbiddenAccess,
 	}
 )

@@ -14,6 +14,7 @@ require (
 )
 
 require (
+	github.com/NooBeeID/go-logging v1.0.0 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
@@ -22,6 +23,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.50.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

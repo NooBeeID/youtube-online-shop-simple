@@ -3,6 +3,7 @@ package product
 import (
 	"context"
 	"nbid-online-shop/infra/response"
+	"nbid-online-shop/internal/log"
 )
 
 type Repository interface {
@@ -25,6 +26,7 @@ func (s service) CreateProduct(ctx context.Context, req CreateProductRequestPayl
 	productEntity := NewProductFromCreateProductRequest(req)
 
 	if err = productEntity.Validate(); err != nil {
+		log.Log.Errorf(ctx, "[CreateProduct, Validate] with error detail %v", err.Error())
 		return
 	}
 
